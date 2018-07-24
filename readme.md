@@ -1,15 +1,15 @@
 
 # Notes: 
-check-html uses a **WEB SERVICE**,  validator.w3.org/nu (since this uses https://www.npmjs.com/package/html-validator)
-This also means that check-html will return async as a promise.
-This seems to return much better results than grunt-htmllint (no webservice)
-So consider that when deciding whether to add this to an automated build.
+check-html-validation uses a **WEB SERVICE**, validator.w3.org/nu (since this uses https://www.npmjs.com/package/html-validator). This also means that check-html will 
+return async as a promise. This seems to return much better results than grunt-htmllint
+(which does not use a webservice). So consider that when deciding whether to add this to 
+an automated build.
 
 # Options
-- logResults defaults to true (and prints pretty errors!)
-- suppressRegex is an array of regex. any errors or warnings that match will be suppressed
-- dir - directory to find html files recursive
-- files - html files to validate
+- **logResults** defaults to true (and prints pretty errors!)
+- **suppressRegex** is an array of regex. any errors or warnings that match will be suppressed
+- **dir** - directory to find html files recursive
+- **files** - html files to validate
 
 # Usage
 
@@ -29,6 +29,8 @@ checkHtml({
         /Empty heading/,
         /Element “li” not allowed as child of element “body” in this context/
     ]
+}).then((data) => {
+    // do something with data
 });
 
 // data: { results: Result[] }
@@ -43,9 +45,11 @@ checkHtml({
 //    "hiliteStart": number,
 //    "hiliteLength": number
 // }
+```
 
 # Using with Grunt
 
+```
 grunt.registerTask('checkHtml', () => {
     let done = this.async();
     checkHtml({
@@ -55,7 +59,7 @@ grunt.registerTask('checkHtml', () => {
             /Empty heading/,
             /Element “li” not allowed as child of element “body” in this context/
         ]
-    }).then(() => {
+    }).then((data) => {
         done();
     });
 });
