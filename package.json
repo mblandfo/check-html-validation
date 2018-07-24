@@ -1,0 +1,20 @@
+{
+  "name": "check-html-validation",
+  "version": "1.0.0",
+  "description": "Check html files and report validation errors and warnings.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "validate",
+    "check",
+    "html"
+  ],
+  "author": "Mike Blandford",
+  "license": "MIT",
+  "dependencies": {
+    "html-validator": "^3.0.5",
+    "lodash": "^4.17.10"
+  }
+}
