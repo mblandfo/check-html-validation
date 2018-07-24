@@ -14,7 +14,7 @@ an automated build.
 # Usage
 
 ```
-var checkHtml = require('check-html');
+const checkHtml = require('check-html-validation');
 
 checkHtml(dirPath);
 checkHtml(filePath);
@@ -50,6 +50,8 @@ checkHtml({
 # Using with Grunt
 
 ```
+const checkHtml = require('check-html-validation');
+
 grunt.registerTask('checkHtml', () => {
     let done = this.async();
     checkHtml({
